@@ -261,7 +261,9 @@ static CGFloat const ISRefreshControlThreshold = 105.f;
     
     UIScrollView *scrollView = (id)self.superview;
     UIEdgeInsets inset = scrollView.contentInset;
-    inset.top -= self.frame.size.height;
+    if (!(inset.top <= 0)) {
+        inset.top -= self.frame.size.height;
+    }
     
     [UIView animateWithDuration:.3f
                      animations:^{
